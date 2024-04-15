@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Momentos Especiales</title>
+  <link rel="stylesheet" href="css/momentosesciales.css">
+</head>
+<body>
+
+  <header>
+    <h1>Momentos Especiales</h1>
+  </header>
+
+  <main>
+    <section class="container">
+      <img id="animated-image" src="img/Shigure Goddess Sticker - Shigure Goddess Kami - Descubre y comparte GIF.gif" alt="sara animada">
+      <p id="progressive-message">¡Feliz Cumpleaños! Disfruta de estos momentos especiales.</p>
+    </section>
+
+    <section class="container">
+      <h2>Recuerdos</h2>
+      <div class="gallery">
+        <div class="gallery-item small">
+          <img src="img/solo esta creativa.jpeg" alt="Imagen 1">
+          <div class="caption">amor pues la puse por que esta creativa</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="img/jajaajjaja que caja de dia.mp4" alt="Imagen 2" style=" width: 100%; height: auto;">
+            <div class="caption">y ese bebesote, ¿quién es?</div>
+          </div>
+          
+        
+        <div class="gallery-item">
+          <img src="img/chocomanesadas.jpeg" alt="Imagen 3">
+          <img src="img/chupona.jpeg" alt="Imagen 4">
+          <div class="caption">choco mañesadas</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="img/saradebemosmedioriñon.mp4" alt="Imagen 5">
+            <div class="caption">mrk nos re endeudamos💸</div>
+          </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <h2>Recuerdos</h2>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="img/WhatsApp Video 2024-04-14 at 3.45.39 PM.mp4" alt="Imagen 56">
+          <div class="caption">solo cascadas</div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/WhatsApp Video 2024-04-13 at 9.50.37 PM.mp4" alt="Imagen 7">
+          <div class="caption">25 hr al dia</div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/WhatsApp Video 2024-04-14 at 3.45.44 PM.mp4" alt="Imagen 8">
+          <div class="caption">el mapache?</div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/sara que putas mi bro.mp4" alt="Imagen 8">
+          <div class="caption">sara que putas bro</div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <a href="index.html" class="start-button">¡volver al inicio!</a>
+
+  <footer>
+    <p>Derechos de autor © 2024 por [Mariana Bich]</p>
+  </footer>
+
+  <script>
+    const messageElement = document.getElementById('progressive-message');
+    const message = "¡bueno primero que todo gracias por salvarme en muchas ocaciones este regalo me sale del corazon osea se que soy aveces mala persona pero igual te quiero gracias por no dejerme morir cuando enserio lo queria no tenia plata para darle un regalo entonces me puse de desarrolladora y le hice su propia pagina ojala le guste  .";
+
+    let index = 0;
+    const showMessage = () => {
+      if (index < message.length) {
+        messageElement.innerHTML += message.charAt(index);
+        index++;
+        setTimeout(showMessage, 100); 
+      }
+    };
+
+    showMessage();
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

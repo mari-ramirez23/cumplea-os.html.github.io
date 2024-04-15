@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/stylejuego.css">
+  <title>Encuentra la Sorpresa</title>
+</head>
+<body>
+  <h1>¡Amor que vegestorio!</h1>
+  <p>Haz clic en la imagen para revelar la sorpresa.</p>
+  <img id="imagen" src="img/MONSTER PUKE.gif" alt="Sorpresa">
+ 
+  <div id="mensaje">
+    <h2>¡Sorpresa!</h2>
+    <p>Feliz cumpleaños atrasado mi reinota</p>
+  </div>
+
+  <div id="preguntas">
+    <h2>Preguntas</h2>
+    <form id="formulario">
+      <label for="pregunta1">¿Quien es lo mas chimba de todo medellin?</label><br>
+      <input type="text" id="pregunta1" name="pregunta1"><br>
+      <label for="pregunta2">¿que edad estas cumpliendo?</label><br>
+      <input type="text" id="pregunta2" name="pregunta2"><br>
+      <label for="pregunta3">¿cual es tu charlita actual por la que me cambiaste? [pista es como kathe y yo le decimos]</label><br>
+      <input type="text" id="pregunta3" name="pregunta3"><br><br>
+      <input type="submit" value="enviar">
+    </form>
+    <div id="respuestas"></div>
+    <p id="puntos">Puntos: <span id="puntuacion">0</span></p>
+  </div>
+
+  <script>
+    const imagen = document.getElementById('imagen');
+    const mensaje = document.getElementById('mensaje');
+    const preguntasDiv = document.getElementById('preguntas');
+    const formulario = document.getElementById('formulario');
+    const respuestasDiv = document.getElementById('respuestas');
+    const puntuacionSpan = document.getElementById('puntuacion');
+    let moviendo = true;
+    let puntuacion = 0;
+
+    function moverImagen() {
+      if (moviendo) {
+        const nuevaPosX = Math.random() * (window.innerWidth - imagen.width);
+        const nuevaPosY = Math.random() * (window.innerHeight - imagen.height);
+        imagen.style.left = nuevaPosX + 'px';
+        imagen.style.top = nuevaPosY + 'px';
+        setTimeout(moverImagen, 1000); 
+      }
+    }
+
+    imagen.addEventListener('click', function() {
+      moviendo = false;
+      mensaje.style.display = 'block';
+    });
+
+    formulario.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const respuestas = {
+        pregunta1: document.getElementById('pregunta1').value.toLowerCase(),
+        pregunta2: document.getElementById('pregunta2').value.toLowerCase(),
+        pregunta3: document.getElementById('pregunta3').value.toLowerCase()
+      };
+
+      const respuestasCorrectas = {
+        pregunta1: 'mariana',
+        pregunta2: '17',
+        pregunta3: 'saimon'
+      };
+
+      const resultados = {};
+
+      for (const pregunta in respuestas) {
+        if (respuestas.hasOwnProperty(pregunta)) {
+          resultados[pregunta] = respuestas[pregunta] === respuestasCorrectas[pregunta];
+          if (resultados[pregunta]) {
+            puntuacion += 10;
+          }
+        }
+      }
+
+      mostrarResultados(resultados);
+      mostrarRespuestasCorrectas(respuestasCorrectas);
+      actualizarPuntuacion();
+    });
+
+    function mostrarResultados(resultados) {
+      let html = '<h2>Resultados</h2>';
+      for (const pregunta in resultados) {
+        if (resultados.hasOwnProperty(pregunta)) {
+          if (resultados[pregunta]) {
+            html += `<p>Pregunta ${pregunta}: <span style="color: green;">Correcta</span>. ¡Felicidades!</p>`;
+          } else {
+            html += `<p>Pregunta ${pregunta}: <span style="color: red;">Incorrecta</span>.</p>`;
+          }
+        }
+      }
+      respuestasDiv.innerHTML = html;
+    }
+
+    function mostrarRespuestasCorrectas(respuestasCorrectas) {
+      let html = '<h2>Respuestas Correctas</h2>';
+      for (const pregunta in respuestasCorrectas) {
+        if (respuestasCorrectas.hasOwnProperty(pregunta)) {
+          html += `<p>${pregunta}: ${respuestasCorrectas[pregunta]}</p>`;
+        }
+      }
+      respuestasDiv.innerHTML += html;
+    }
+
+    function actualizarPuntuacion() {
+      puntuacionSpan.textContent = puntuacion;
+    }
+
+    window.addEventListener('load', function() {
+      moverImagen();
+    });
+
+ 
+    
+  </script>
+  <a href="index.html" class="start-button">¡volver al inicio!</a>
+</body>
+
+
+</html>
+   
+
+
+
+
+

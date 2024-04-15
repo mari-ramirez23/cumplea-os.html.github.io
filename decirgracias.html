@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.html">
+  <title>¡Feliz Cumpleaños!</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #ffeb3b;
+      padding-top: 100px;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: rgb(243, 5, 140);
+    }
+
+    p {
+      font-size: 18px;
+      color: #333;
+    }
+
+    #message {
+      margin-bottom: 20px;
+    }
+
+    
+    .start-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #FF69B4;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .start-button:hover {
+      background-color: #ff006f; 
+    }
+  </style>
+</head>
+<body>
+  <h1>¡Feliz Cumpleaños!</h1>
+  <p>¡Hoy es un día especial lleno de sorpresas y aventuras!</p>
+  <p>¡Pero espera! Antes de empezar, vamos a darte un mensaje...</p>
+  
+  <p id="message"></p>
+
+  <script>
+    const messageElement = document.getElementById('message');
+    const message = "¡Bienvenida a tu aventura de cumpleaños! Prepárate para un momento lleno de recuerdos y diversión ¡Aquí comienza tu viaje hacia la alegría y la felicidad!";
+
+    
+    let index = 0;
+    const showMessage = () => {
+      if (index < message.length) {
+        messageElement.innerHTML += message.charAt(index);
+        index++;
+        setTimeout(showMessage, 50); 
+      } else {
+        setTimeout(() => {
+          window.location.href ='index.html';
+        }, 2000); 
+      }
+    };
+
+    showMessage();
+  </script>
+   <img src="img/-6.gif" alt="sara animada">
+
+
+  <a href="index.html" class="start-button">¡Comienza tu aventura!</a>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Despedida</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f7f7f7;
+      padding-top: 100px;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #FF5733;
+    }
+
+    p {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Despedida</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      background-color: #ffeb3b;
+      padding-top: 50px;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: rgb(245, 113, 205);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .heart {
+      animation: beatHeart 1s infinite;
+      font-size: 24px;
+      color: #ed3390;
+    }
+
+    @keyframes beatHeart {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    .quote {
+      font-style: italic;
+      color: #6C5B7B;
+      font-size: 20px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h1>¡Gracias por estar conmigo sara!</h1>
+  <p id="progressive-message">Te agradezco por todo y recuerda vivir tu vida con quien realmente te aprecian y valoran.</p>
+  <p class="quote">"Los buenos amigos son pocos aprendelos a valorar hasta el final."</p>
+  <span class="heart">❤</span>
+  <header>
+    <img src="img/-7.gif" alt="sara animada">
+  </header>
+
+  <script>
+    const messageElement = document.getElementById('progressive-message');
+    const message = "Tu apoyo significa mucho para mí. Gracias por tu tiempo, por tu atención y por compartir este momento conmigo.";
+   
+    let index = 0;
+    const showMessage = () => {
+      if (index < message.length) {
+        messageElement.innerHTML += message.charAt(index);
+        index++;
+        setTimeout(showMessage, 50); 
+      } else {
+        setTimeout(() => {
+          messageElement.innerHTML += "<br>¡Te deseo lo mejor en tus futuras aventuras!";
+        }, 2000); 
+      }
+    };
+
+    showMessage();
+  </script>
+</body>
+</html>
+
